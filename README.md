@@ -5,7 +5,6 @@
 * [Modelling](#modelling)
 * [Project Usage](#project-usage)
 * [Deployment](#deployment)
-* [What is CI/CD?](#what-is-cicd)
 
 ## Objective
 This is an end-to-end project, where the goal is to create a classification model to predict if a picture is one of 12 Singaporean food and serve it through a web application. A trained model is used to predict 12 different food classes, namely 🦀chilli crab, 🥟curry puff, 🍤dim sum, 🍧ice kacang, 🥪kaya toast, 🍚nasi ayam, 🌯popiah, 🥞roti prata, 🐠sambal stingray, 🍢satay, 🍵tau huay or 🍜wanton noodle. 😋
