@@ -118,7 +118,7 @@ An example of the result:
 
 ---
 ## Deployment
-The web application is deployed on a Docker container and hosted on XX.
+The web application is deployed on a Docker container and hosted on Heroku.
 
 The source folder structure is as such:
 
