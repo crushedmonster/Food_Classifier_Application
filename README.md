@@ -1,10 +1,3 @@
-# AIAP Batch 9 Assignment 7: Food Classifier Application
-
-## Details
-Name of Apprentice: Wenna Loo Yan Ying
-
-AIAP Email: wenna_loo_yy@aiap.sg
-
 ## Table of contents
 * [Objective](#objective)
 * [Dataset](#dataset)
@@ -35,8 +28,6 @@ This dataset consist of 12 classes with the breakdown shown in the table below:
 | ice_kacang 	| 90 	|
 | nasi_ayam 	| 85 	|
 | tau_huay 	| 64 	|
-
-The dataset can be downloaded from here: https://aiapstorage1.blob.core.windows.net/datasets/tensorfood.tar.gz.
 
 ---
 ## Data Preprocessing
@@ -128,7 +119,7 @@ An example of the result:
 
 ---
 ## Deployment
-The web application is deployed on a Docker container and hosted on AISG's cluster.
+The web application is deployed on a Docker container and hosted on XX.
 
 The source folder structure is as such:
 
@@ -168,18 +159,3 @@ docker run -p 8000:8000 tensorfood-app
 ```
 
 The web application should be up and running on: http://localhost:8000/ .
-
----
-## Possible future works
-- Create a nicer and more robust user interface
-- Instead of saving the image uploaded to a static folder and displaying it, display it via the html template without saving the image.
-
----
-## What is CI/CD?
-CI/CD stands for continuous integration and continuous development. In short, it enables DevOps teams to increase the speed of software development through automation.
-
-Continuous integration is a fundamental DevOps best practice where developers frequently share their new code in a merge (pull) request into a central repository which triggers a pipeline to build, test, and validate the new code before merging the changes in the repository. Continuous integration puts a great emphasis on testing automation to check that the application is not broken whenever new commits are integrated into the main branch.
-
-Continuous delivery is an extension of continuous integration since it automatically deploys all code changes to a testing and/or production environment after the build stage.
-
-[<img src="./assets/diagram.png" width="750"/>](./assets/diagram.png)
