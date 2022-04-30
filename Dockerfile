@@ -5,20 +5,17 @@ ARG WORK_DIR="/app"
 
 WORKDIR $WORK_DIR
 
+# Create the environment 
+COPY conda.yml $WORK_DIR
+RUN conda env create -f conda.yml
+
 # Add lines here to copy over your src folder and 
 # any other files you need in the image (like the saved model).
 COPY ./src $WORK_DIR/src
 COPY model.h5 $WORK_DIR
 COPY README.md $WORK_DIR
 
-# Add a line here to update the base conda environment using the conda.yml. 
-COPY conda.yml $WORK_DIR
-RUN conda env update -f conda.yml -n base
-
-EXPOSE 5000
-
-RUN echo "Making sure flask is installed..."
-RUN python -c "import flask"
+EXPOSE 8000
 
 # Add a line here to run your app
 CMD ["python", "-m", "src.app"]
