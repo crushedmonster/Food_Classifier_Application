@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>About</title>
+  </head>
+  <body>
+    {% extends "template.html" %}
+    {% block content %}
+    
+    <h1> Model Specifications: </h1>
+    <p style="margin-bottom:1cm;"></p>
+    <h3> 🏢 Architecture </h3>
+    <p>The base architecture used was a MobileNet V2 model. 
+      This is pre-trained on the ImageNet dataset, a large dataset consisting of 1.4M images and 1000 classes. 
+      The convolutional base is freezed and used as a feature extractor. 
+      Additional classifier head is added on top of the convolutional base and trained on a training set of about 975 images belonging to 12 classes. </p>
+
+    <h3> 📈 Optimizer </h3>
+    <p>The Adam optimzer was used, with a learning rate a 0.001. The model was then compiled using a categorical cross-entropy loss. </p>
+
+    <h3> 🏋️ Training </h3>
+    <p>The model was trained on 100 epochs with with early stopping implemented on validation accuracy loss with a patience of 5. The model eventually stopped training after 16 epochs.</p>
+
+    <h3> ✔️ Results </h3>
+    <p>The model achieved a test accuracy of 91%, with an estimated training time of 10 minutes.</p>
+
+    {% endblock %}
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  
+  <head>
+    <meta charset="utf-8">
+    <title>😋 Wenna's Food Classifier</title>
+  </head>
+  <body>
+    {% extends "template.html" %}
+    {% block content %}
+    
+    <h2> 🍨 Image Classifier </h2>
+    <p> Select an image to upload. </p>
+
+    <form method=post enctype=multipart/form-data>
+      <input type=file name=file>
+      <input type=submit value=Predict>
+    </form>
+
+    <p style="margin-bottom:2cm;"></p>
+
+    {% if filename %}
+    <div>
+    <p id="left"><b>Results: </b></p>
+    </div>
+    <img src="{{ filename }}" width="256" height="256" />
+    {% endif %}
+
+    {% if food %}
+    <p>There's a {{ probability_pct }}% that this is a {{ food }}.</p>
+    {% endif %}
+
+    {% endblock %}
+  </body>
+</html>
