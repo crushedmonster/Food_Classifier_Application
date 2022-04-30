@@ -1,6 +1,11 @@
-# import libraries
+####################
+# Required Modules #
+####################
+
+# Generic / Built-in 
 import os
-import atexit
+
+# Libraries 
 import numpy as np
 import logging
 from waitress import serve
@@ -9,8 +14,13 @@ from flask import Flask, render_template, jsonify, flash, \
 from werkzeug.utils import secure_filename
 import markdown.extensions.fenced_code
 
-# import inference.py from src 
+# Custom 
+## import inference.py from src 
 from .inference import Inference
+
+##################
+# Configurations #
+##################
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -35,6 +45,9 @@ else:
 inference = Inference(model_name)
 logger.info(f'Model has been successfully loaded.')
 
+#############
+# Functions #
+#############
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -45,7 +58,6 @@ def index():
     """ Displays the index page accessible at '/'
     """
     return render_template('index.html')
-
 
 @app.route('/about', methods=['GET'])
 def about():
@@ -73,36 +85,8 @@ def short_description():
         'pretrained-on': 'ImageNet'
     })
 
-@app.route('/predict', methods=['GET','POST'])
+@app.route('/predict', methods=['GET', 'POST'])
 def predict():
-    """Returns the prediction
-    """
-    # create an empty dictionary to store prediction
-    results = {}
-
-    if request.method == 'POST':
-        # check if the post request has the file part
-        if 'file' not in request.files:
-            flash('No file part')
-            return redirect(request.url)
-        file = request.files['file']
-        # if user does not select file, browser also
-        # submit an empty part without filename
-        if file.filename == '':
-            flash('No selected file')
-            return redirect(request.url)
-        if file and allowed_file(file.filename):
-            # make prediction
-            input_arr = inference.load_img(file)
-            pred_class, pred_proba = inference.prediction(input_arr)
-            results['food'] = pred_class
-            results['probability'] = round(pred_proba,2)
-            results['probability_pct'] = round(pred_proba *100,2)
-
-    return jsonify(results)
-
-@app.route('/', methods=['GET', 'POST'])
-def upload_file():
     if request.method == 'POST':
         # check if the post request has the file part
         if 'file' not in request.files:
@@ -126,6 +110,9 @@ def upload_file():
             return render_template('index.html', food = pred_class, \
                 probability_pct = round(pred_proba *100,2), filename=image_path)
 
+###########
+# Scripts #
+###########
 
 if __name__ == "__main__":
     logger.info("Session Started")

@@ -34,8 +34,8 @@ class Inference:
     
     def __init__(self, model_name:str):
         self.target_size = (256, 256)
-        if os.getcwd().endswith("all-assignments"):
-            self.model_name = os.path.join("assignment7", model_name)
+        if os.getcwd().endswith("portfolio"):
+            self.model_name = os.path.join("food_classifier_application", model_name)
         else:
             self.model_name = model_name
         # init your model here
