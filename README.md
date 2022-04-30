@@ -127,6 +127,7 @@ The source folder structure is as such:
  ├── src                                # Contains the necessary source files to run the flask app
  │   ├── app.py				            # Python file of the flask app	
  │   ├── inference.py		            # Python file for model inference
+ │   ├── train.py		            # Python file used for model training
  │   ├── static                         # Contains static files required for the flask app
  |   |   ├── uploads                    # Folder to contain the images uploaded for model inference
  |   |   ├── css
