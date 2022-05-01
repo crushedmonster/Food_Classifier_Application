@@ -7,7 +7,8 @@ WORKDIR $WORK_DIR
 
 # Create the environment
 COPY conda.yml $WORK_DIR 
-RUN conda env create -f conda.yml
+RUN conda create --name food_classifier
+SHELL ["conda", "run", "-n", "food_classifier", "/bin/bash", "-c"]
 RUN conda env update -f conda.yml -n base
 
 # Demonstrate the environment is activated
