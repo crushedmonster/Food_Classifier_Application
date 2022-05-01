@@ -143,7 +143,7 @@ In the base folder, run the following commands.
 Build a docker image:
 
 ```
-docker build . -t tensorfood-app
+docker build -t tensorfood-app .
 ```
 
 Verify that the docker image was built:
