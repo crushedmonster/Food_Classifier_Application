@@ -1,9 +1,3 @@
-# Food Classifier Application
-The app is found [here](https://share.streamlit.io/crushedmonster/streamlit_bus_number_detector): 
-```
-https://share.streamlit.io/crushedmonster/streamlit_bus_number_detector
-```
-
 ## Table of contents
 * [Objective](#objective)
 * [Dataset](#dataset)
