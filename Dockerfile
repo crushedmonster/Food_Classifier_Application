@@ -7,8 +7,10 @@ WORKDIR $WORK_DIR
 
 # Create the environment
 COPY conda.yml $WORK_DIR 
-RUN conda create --name food_classifier
-RUN conda env update -f conda.yml -n base
+RUN conda env create -f conda.yml
+
+# Make RUN commands use the new environment:
+SHELL ["conda", "run", "-n", "food_classifier", "/bin/bash", "-c"]
 
 # Demonstrate the environment is activated
 RUN echo "Make sure flask is installed:"
@@ -19,7 +21,8 @@ RUN python -c "import flask"
 COPY ./src $WORK_DIR/src
 COPY model.h5 $WORK_DIR
 
+# Expose port for accessing  the app
 EXPOSE 8000
 
 # Add a line here to run your app
-CMD ["python", "-m", "src.app"]
+CMD ["conda", "run", "-n", "food_classifier", "python", "-m", "src.app"]
