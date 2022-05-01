@@ -6,13 +6,11 @@
 import os
 
 # Libraries 
-import numpy as np
 import logging
 from waitress import serve
 from flask import Flask, render_template, jsonify, flash, \
-    request, url_for, redirect, send_from_directory
+    request, url_for, redirect
 from werkzeug.utils import secure_filename
-import markdown.extensions.fenced_code
 
 # Custom 
 ## import inference.py from src 
@@ -65,15 +63,6 @@ def about():
     """
     return render_template('about.html')
 
-@app.route('/docs', methods=['GET'])
-def readme():
-    # convert markdown to html
-    readme_file = open(read_me_path, "r", encoding="utf-8")
-    md_template_string = markdown.markdown(
-        readme_file.read(), extensions=["fenced_code"]
-    )
-    return md_template_string
-
 @app.route('/info', methods=['GET'])
 def short_description():
     """Returns information about the model and what input it expects in JSON
@@ -108,7 +97,11 @@ def predict():
             pred_class, pred_proba = inference.prediction(input_arr)
 
             return render_template('index.html', food = pred_class, \
-                probability_pct = round(pred_proba *100,2), filename=image_path)
+                probability_pct = round(pred_proba *100,2), filename=filename)
+
+@app.route('/display/<filename>')
+def display_image(filename):
+	return redirect(url_for('static', filename='uploads/' + filename), code=301)
 
 ###########
 # Scripts #

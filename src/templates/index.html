@@ -24,7 +24,7 @@
     <div>
     <p id="left"><b>Results: </b></p>
     </div>
-    <img src="{{ filename }}" width="256" height="256" />
+    <img src="{{ url_for('display_image', filename=filename) }}" width="256" height="256" />
     {% endif %}
 
     {% if food %}
