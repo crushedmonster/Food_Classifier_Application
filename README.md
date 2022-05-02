@@ -155,7 +155,7 @@ docker images
 Running the flask app in docker container: 
 
 ```
-docker run -p 8000:8000 tensorfood-app
+docker run -p 5000:5000 tensorfood-app
 ```
 
 The web application should be up and running on: http://localhost:8000/ .
