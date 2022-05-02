@@ -21,8 +21,7 @@ RUN python -c "import flask"
 COPY ./src $WORK_DIR/src
 COPY model.h5 $WORK_DIR
 
-# Expose port for accessing  the app
-EXPOSE 8000
+EXPOSE 5000
 
 # Add a line here to run your app
-CMD ["conda", "run", "-n", "food_classifier", "python", "-m", "src.app"]
+ENTRYPOINT ["conda", "run", "-n", "food_classifier", "python", "-m", "src.app"]
