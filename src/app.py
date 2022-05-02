@@ -32,12 +32,10 @@ DEV = False # <--- TOGGLE THIS
 if DEV:
     model_name = '../model.h5'
     app.config["UPLOAD_FOLDER"] = 'static/uploads/'
-    read_me_path = '../README.md'
     
 else:
     model_name = 'model.h5'
     app.config["UPLOAD_FOLDER"] = 'src/static/uploads/'
-    read_me_path = 'README.md'
 
 # instantiate the inference class
 inference = Inference(model_name)
