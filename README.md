@@ -1,3 +1,12 @@
+# Food Classifier Application
+The app is found [here](https://singapore-food-classifier-app.herokuapp.com/): 
+```
+https://singapore-food-classifier-app.herokuapp.com/
+```
+[<img src="./assets/app_preview.PNG" width="850"/>](./assets/app_preview.PNG)
+
+*Preview of the web application*
+
 ## Table of contents
 * [Objective](#objective)
 * [Dataset](#dataset)
